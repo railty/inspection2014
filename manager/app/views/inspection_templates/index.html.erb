@@ -1,0 +1,27 @@
+<h1>Listing inspection_templates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @inspection_templates.each do |inspection_template| %>
+      <tr>
+        <td><%= link_to inspection_template.name, inspection_template %></td>
+        <td><%= link_to 'Attributes', inspection_template_attr_templates_path(inspection_template) %></td>
+        <td><%= link_to 'Edit', edit_inspection_template_path(inspection_template) %></td>
+        <td><%= link_to 'Destroy', inspection_template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Generate', generate_inspection_template_path(inspection_template) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Inspection template', new_inspection_template_path %>

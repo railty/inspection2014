@@ -1,0 +1,33 @@
+<h1>Editing redline <%=@redline.xml.path%></h1>
+
+<%= form_for(@redline) do |f| %>
+  <% if @redline.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@redline.errors.count, "error") %> prohibited this redline from being saved:</h2>
+
+      <ul>
+      <% @redline.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+  
+    <%@redline.features.each do |feature| %>
+      <%fid = get_fid(feature)%>
+      <br/>
+      <table border="solid 1px black">
+      <%feature.each do |attr|%>
+        <%=attr_tag(fid, attr)%>
+      <%end%>
+      </table>
+    <%end%>
+  
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @redline %> |
+<%= link_to 'Back', redlines_path %>

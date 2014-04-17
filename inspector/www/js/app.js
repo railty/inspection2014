@@ -43,21 +43,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.inspections', {
+      url: '/inspections',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
+        'tab-inspections': {
+          templateUrl: 'templates/tab-inspections.html',
+          controller: 'InspectionsCtrl'
         }
       }
     })
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
+    .state('tab.inspection-detail', {
+      url: '/inspection/:inspectionId',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+        'tab-inspections': {
+          templateUrl: 'templates/inspection-detail.html',
+          controller: 'InspectionDetailCtrl'
         }
       }
     })
@@ -76,4 +76,3 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   $urlRouterProvider.otherwise('/tab/dash');
 
 });
-

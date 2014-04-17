@@ -1,0 +1,44 @@
+<h1>Listing attr_templates</h1>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Value</th>
+        
+        <th>Foreign_key</th>
+        <th>Ordinal</th>
+        <th>Group</th>
+        <th>Visible</th>
+        <th>Editable</th>
+        <th>Required</th>
+        <th>Input</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attr_templates.each do |attr_template| %>
+      <tr>
+        <td><%= link_to attr_template.name, attr_template %></td>
+        <td><%= attr_template.type %></td>
+        <td><%= attr_template.value %></td>
+        
+        <td><%= attr_template.foreign_key %></td>
+        <td><%= attr_template.ordinal %></td>
+        <td><%= attr_template.group %></td>
+        <td><%= attr_template.visible %></td>
+        <td><%= attr_template.editable %></td>
+        <td><%= attr_template.required %></td>
+        <td><%= attr_template.input %></td>
+        
+        <td><%= link_to 'Edit', edit_attr_template_path(attr_template) %></td>
+        <td><%= link_to 'Destroy', attr_template, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attr template', new_attr_template_path %>

@@ -1,4 +1,26 @@
 Manager::Application.routes.draw do
+  
+  resources :attrs
+
+  resources :attr_templates
+  resources :attr
+
+  resources :inspection_templates do
+    resources :attr_templates
+      member do
+        get 'generate'
+      end
+  end
+
+  resources :inspections do
+    resources :attrs
+  end
+
+  resources :features
+
+  resources :redlines
+  root 'redlines#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

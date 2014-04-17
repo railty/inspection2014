@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p><%=@redline.xml.path%></p>
+
+<%@redline.features.each do |feature| %>
+  <br/>
+  <table border="solid 1px black">
+  <%feature.each do |attr|%>
+    <tr><td><%=attr['Name']%></td><td><%=attr['Value']%></td></tr>
+  <%end%>
+  </table>
+<%end%>
+
+<%= link_to 'Edit', edit_redline_path(@redline) %> |
+<%= link_to 'Back', redlines_path %>

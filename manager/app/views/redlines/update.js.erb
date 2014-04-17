@@ -1,0 +1,10 @@
+var id='#<%=@fid%>'+"_"+'<%=@ano%>';
+<%if @result then%>
+  $(id).text("update successful");
+<%else%>
+  $(id).text("update failed");
+<%end%>
+
+setTimeout(function(){
+  $(id).text("update");
+},3000);

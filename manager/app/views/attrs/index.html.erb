@@ -1,0 +1,44 @@
+<h1>Listing attrs for inspection <%=@inspection.name%></h1>
+
+<table>
+  <thead>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Value</th>
+        
+        <th>Foreign_key</th>
+        <th>Ordinal</th>
+        <th>Group</th>
+        <th>Visible</th>
+        <th>Editable</th>
+        <th>Required</th>
+        <th>Input</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attrs.each do |attr| %>
+      <tr>
+        <td><%= link_to attr.name, attr %></td>
+        <td><%= attr.type %></td>
+        <td><%= attr.value %></td>
+        
+        <td><%= attr.foreign_key %></td>
+        <td><%= attr.ordinal %></td>
+        <td><%= attr.group %></td>
+        <td><%= attr.visible %></td>
+        <td><%= attr.editable %></td>
+        <td><%= attr.required %></td>
+        <td><%= attr.input %></td>
+
+        <td><%= link_to 'Edit', edit_attr_path(attr) %></td>
+        <td><%= link_to 'Destroy', attr, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attr', new_inspection_attr_path(@inspection) %>

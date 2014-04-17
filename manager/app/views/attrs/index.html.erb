@@ -32,7 +32,7 @@
         <td><%= attr.required %></td>
         <td><%= attr.input %></td>
 
-        <td><%= link_to 'Edit', edit_attr_path(attr) %></td>
+        <td><%= link_to 'Edit', edit_inspection_attr_path(@inspection, attr) %></td>
         <td><%= link_to 'Destroy', attr, method: :delete %></td>
       </tr>
     <% end %>

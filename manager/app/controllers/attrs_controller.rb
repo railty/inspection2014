@@ -46,7 +46,7 @@ class AttrsController < ApplicationController
   def update
     respond_to do |format|
       if @attr.update(attr_params)
-        format.html { redirect_to @attr, notice: 'Attr was successfully updated.' }
+        format.html { redirect_to [@inspection, @attr], notice: 'Attr was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -74,6 +74,6 @@ class AttrsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def attr_params
-      params[:attr].permit(:name)
+      params[:attr].permit(:name, :type, :value, :foreign_key, :ordinal, :group, :visible, :editable, :required, :input)
     end
 end

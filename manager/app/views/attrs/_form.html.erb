@@ -13,8 +13,20 @@
   <% end %>
 
   <div class="actions">
-    <%=f.label :name%>
-    <%=f.text_field :name%>
+	<table>
+			<tr><td><%=f.label :name%></td><td><%=f.text_field :name%></td></tr>
+			<tr><td><%=f.label :type%></td><td><%=f.text_field :type%></td></tr>
+			<tr><td><%=f.label :value%></td><td><%=f.text_field :value%></td></tr>
+			
+			<tr><td><%=f.label :foreign_key%></td><td><%=f.text_field :foreign_key%></td></tr>
+			<tr><td><%=f.label :ordinal%></td><td><%=f.text_field :ordinal%></td></tr>
+			<tr><td><%=f.label :group%></td><td><%=f.text_field :group%></td></tr>
+			<tr><td><%=f.label :input%></td><td><%=f.text_field :input%></td></tr>
+			
+			<tr><td><%=f.label :visible%></td><td><%=f.check_box :visible%></td></tr>
+			<tr><td><%=f.label :editable%></td><td><%=f.check_box :editable%></td></tr>
+			<tr><td><%=f.label :required%></td><td><%=f.check_box :required%></td></tr>
+		<table>
     <%= f.submit %>
   </div>
 <% end %>

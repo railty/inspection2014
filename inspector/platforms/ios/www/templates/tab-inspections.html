@@ -1,0 +1,9 @@
+<ion-view title="Inspections">
+  <ion-content class="has-header">
+    <ion-list>
+      <ion-item ng-repeat="inspection in inspections" type="item-text-wrap" href="#/tab/inspection/{{inspection.id}}">
+        {{inspection.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

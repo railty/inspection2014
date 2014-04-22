@@ -4,20 +4,20 @@
     <button class="button" onClick="test();">
 	  Take Photo
 	</button>
-	<img id='myImage'>
+	<img id='photo'>
 	</img>
   </ion-content>
 </ion-view>
 <script>
 function test(){
 	console.log("22222");
-	alert("11111");
 	navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
 }
 
 function onSuccess(imageURI) {
-    var image = document.getElementById('myImage');
+    var image = document.getElementById('photo');
     image.src = imageURI;
+	alert(imageURI);
 }
 
 function onFail(message) {

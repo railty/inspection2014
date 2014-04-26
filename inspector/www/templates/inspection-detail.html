@@ -1,4 +1,8 @@
 <ion-view title="{{inspection.name}}">
+    <ion-nav-buttons side="right">
+		<button class="button-icon icon ion-checkmark" onClick="save()"></button>
+	</ion-nav-buttons>
+	
   <ion-content has-header="true" padding="false">
   <div class='list'>
 	
@@ -19,3 +23,38 @@
   </div>
   </ion-content>
 </ion-view>
+<script>
+	function save(){
+		console.log("saving");
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+    }
+
+    function gotFS(fileSystem) {
+        fileSystem.root.getFile("readme.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+    }
+
+    function gotFileEntry(fileEntry) {
+        fileEntry.createWriter(gotFileWriter, fail);
+    }
+
+    function gotFileWriter(writer) {
+        writer.onwriteend = function(evt) {
+            console.log("contents of file now 'some sample text'");
+            writer.truncate(11);  
+            writer.onwriteend = function(evt) {
+                console.log("contents of file now 'some sample'");
+                writer.seek(4);
+                writer.write(" different text");
+                writer.onwriteend = function(evt){
+                    console.log("contents of file now 'some different text'");
+                }
+            };
+        };
+        writer.write("some sample text");
+    }
+
+    function fail(error) {
+        console.log(error.code);
+    }
+
+</script>

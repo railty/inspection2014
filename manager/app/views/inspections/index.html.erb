@@ -24,3 +24,14 @@
 <br>
 
 <%= link_to 'New Inspection', new_inspection_path %>
+
+<div ng-app="App">
+	<div ng-controller="InspectionCtrl">
+	<button ng-click="dl_json();">Download</button>
+		ABC{{name}}
+		{{inspections.length}}
+	</div>
+</div>
+
+
+
